@@ -2,14 +2,15 @@ var express = require('express');
 var app = express();
 var bufferReading;
 app.use(express.logger());
-
-fs.readFile('index.html', function(err, data) {
+var bufferReading;
+fs.readFileSync('index.html', function(err, data) {
     if (err) throw err;
     var buffer = new Buffer(data);
 
     bufferReading = buffer.toString();
 }
-	    console.log(bufferReading);
+	   
+console.log(bufferReading);
 app.get('/', function(request, response) {
   response.send(bufferReading);
 });
