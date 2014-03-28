@@ -4,12 +4,12 @@ var app = express();
 app.use(express.logger());
 
 var content = fs.readFileSync('index.html');
-content  = content.toString();
+var String = content.toString();
 
 
 
 app.get('/', function(request, response) {
-    response.send(content);
+    response.send(String);
 });
 
 var port = process.env.PORT || 5000;
