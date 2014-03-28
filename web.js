@@ -1,18 +1,15 @@
 var express = require('express');
 var app = express();
-var bufferReading;
-app.use(express.logger());
-//var bufferReading;
-/*fs.readFileSync('index.html', function(err, data) {
-    if (err) throw err;
-    var buffer = new Buffer(data);
 
-    bufferReading = buffer.toString();
-}
-*/	   
-//console.log(bufferReading);
+app.use(express.logger());
+
+var content = fs.readFileSync('index.html');
+content  = content.toString();
+
+
+
 app.get('/', function(request, response) {
-    response.send("I am so confused");
+    response.send(content);
 });
 
 var port = process.env.PORT || 5000;
